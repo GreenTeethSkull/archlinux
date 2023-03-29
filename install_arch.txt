@@ -230,6 +230,12 @@ utilizar Oh-my-posh
 theme = rudolfs-dark
 copiar /home/greenskull/.bashrc -> /root/
 
+--Shell
+instalar zsh y fish 
+instalar oh-my-zsh con los plugins zsh-highlightext zsh-autossugesstions
+ver nombre de shell usando > cat /etc/shells
+cambiar la shell de acuerdo a la ruta > chsh -s /usr//bin/fish
+
 --Terminal Icons (Buscar)
 
 --Resizing en VirtualBox
@@ -237,8 +243,12 @@ habilitat ajustar ventana en virtualbox
 sudo pacman -S virtualbox-guest-utils
 sudo systemctl enable vboxservice.service
 
---para conectarse a la raspberry pi 
+--para conectarse a la raspberry pi en arch
 Entrar a Settings > NetWork > New Profile
 Make available to other users
 Raspberry Pi 4
 Shared to other computers
+
+--EN LA RASPBERRY
+en la ruta principal crear un archivo ssh
+agregar en cmdline.txt > ip=10.42.0.2
