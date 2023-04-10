@@ -236,6 +236,10 @@ instalar oh-my-zsh con los plugins zsh-highlightext zsh-autossugesstions
 ver nombre de shell usando > cat /etc/shells
 cambiar la shell de acuerdo a la ruta > chsh -s /usr//bin/fish
 
+--Desactivar la hot corner activities
+gsettings set org.gnome.desktop.interface enable-hot-corners false
+gsettings get org.gnome.desktop.interface enable-hot-corners
+
 --Terminal Icons (Buscar)
 
 --Resizing en VirtualBox
