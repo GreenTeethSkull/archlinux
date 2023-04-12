@@ -130,6 +130,7 @@ Awesome Tiles
 
 --Cualquier cosa
 pacman -Syu
+pacman -Sc
 
 
 **DESPUÉS DE INSTALAR ARCH Entrno Gráfico**
