@@ -106,3 +106,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="/home/greenskull/.local/bin:$PATH"
+# FLUTTER
+export PATH="/opt/flutter/bin:$PATH"
+export CHROME_EXECUTABLE="/usr/bin/brave"
