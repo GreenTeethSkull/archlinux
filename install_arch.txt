@@ -115,6 +115,7 @@ pacman -S gnome-power-manager
 sudo systemctl enable gdm.service
 pacman -S firefox ntfs-3g dnsutils net-tools
 pacman -S nvidia nvidia-utils nvidia-settings opencl-nvidia mesa
+pacman -S htop nvtop intel-gpu-tools
 pacman -S dotnet-sdk dotnet-runtime nodejs-lts
 pacman -S grub-customizer
 pacman -S bluez bluez-utils
