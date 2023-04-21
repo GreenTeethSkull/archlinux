@@ -115,7 +115,7 @@ pacman -S gnome-power-manager
 sudo systemctl enable gdm.service
 pacman -S firefox ntfs-3g dnsutils net-tools
 pacman -S nvidia nvidia-utils nvidia-settings opencl-nvidia mesa
-pacman -S htop nvtop intel-gpu-tools
+pacman -S htop nvtop intel-gpu-tools acpi
 pacman -S dotnet-sdk dotnet-runtime nodejs-lts
 pacman -S grub-customizer
 pacman -S bluez bluez-utils
@@ -241,6 +241,15 @@ cambiar la shell de acuerdo a la ruta > chsh -s /usr//bin/fish
 --Desactivar la hot corner activities
 gsettings set org.gnome.desktop.interface enable-hot-corners false
 gsettings get org.gnome.desktop.interface enable-hot-corners
+
+--ERROR MOUNTING NTFS DISK
+sudo ntfsfix /dev/sdb1
+
+--ERROR MOUNTING FAT32 DISK
+sudo fsck -y /dev/sdb1
+
+--ERROR D-BUS IN NAUTILUS MOUNTING USB
+systemctl --user restart gvfs-udisks2-volume-monitor
 
 --Terminal Icons (Buscar)
 
