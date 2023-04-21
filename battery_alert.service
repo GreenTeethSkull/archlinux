@@ -1,0 +1,8 @@
+[Unit]
+Description=Battery monitoring
+
+[Service]
+ExecStart=/usr/bin/env fish /home/greenskull/Documents/battery.fish
+
+[Install]
+WantedBy=multi-user.target
