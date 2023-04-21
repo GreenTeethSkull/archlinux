@@ -242,6 +242,22 @@ cambiar la shell de acuerdo a la ruta > chsh -s /usr//bin/fish
 gsettings set org.gnome.desktop.interface enable-hot-corners false
 gsettings get org.gnome.desktop.interface enable-hot-corners
 
+--Configurar alertas de batería
+poner los archivos battery.fish y battery.sh en la carpeta Documentos
+
+cd /etc/systemd/system
+
+sudo nano battery_alert.service
+
+sudo chmod 777 /etc/systemd/system/battery_alert.service
+
+sudo systemctl daemon-reload 
+
+sudo systemctl enable battery_alert.service 
+sudo systemctl start battery_alert.service
+
+sudo systemctl status battery_alert.service  
+
 --ERROR MOUNTING NTFS DISK
 sudo ntfsfix /dev/sdb1
 
