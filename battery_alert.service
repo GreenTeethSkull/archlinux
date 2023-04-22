@@ -2,6 +2,8 @@
 Description=Battery monitoring
 
 [Service]
+User=greenskull
+Environment="DISPLAY=:1"
 ExecStart=/usr/bin/env fish /home/greenskull/Documents/battery.fish
 
 [Install]
