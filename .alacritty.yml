@@ -42,7 +42,7 @@ window:
     x: 530
     y: 323
 
-  # Window padding (changes require restart)
+  # Window padding https://github.com/dracula/alacritty(changes require restart)
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
@@ -200,7 +200,8 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#222222'
+    background: '#282a36'
+    #background: '#281F2E'
     foreground: '#19ED11'
 
     # Bright and dim foreground colors
@@ -235,33 +236,33 @@ colors:
   # Search colors
   #
   # Colors used for the search bar and match highlighting.
-  #search:
+  search:
     # Allowed values are CellForeground/CellBackground, which reference the
     # affected cell, or hexadecimal colors like #ff00ff.
-    #matches:
-    #  foreground: '#000000'
-    #  background: '#ffffff'
-    #focused_match:
-    #  foreground: '#ffffff'
-    #  background: '#000000'
+    matches:
+      foreground: '#44475a'
+      background: '#50fa7b'
+    focused_match:
+      foreground: '#44475a'
+      background: '#ffb86c'
 
   # Keyboard hints
-  #hints:
+  hints:
     # First character in the hint label
     #
     # Allowed values are CellForeground/CellBackground, which reference the
     # affected cell, or hexadecimal colors like #ff00ff.
-    #start:
-    #  foreground: '#1d1f21'
-    #  background: '#e9ff5e'
+    start:
+      foreground: '#282a36'
+      background: '#f1fa8c'
 
     # All characters after the first one in the hint label
     #
     # Allowed values are CellForeground/CellBackground, which reference the
     # affected cell, or hexadecimal colors like #ff00ff.
-    #end:
-    #  foreground: '#e9ff5e'
-    #  background: '#1d1f21'
+    end:
+      foreground: '#f1fa8c'
+      background: '#282a36'
 
   # Line indicator
   #
@@ -278,9 +279,9 @@ colors:
   # Color used for the footer bar on the bottom, used by search regex input,
   # hyperlink URI preview, etc.
   #
-  #footer_bar:
-  #  background: '#c5c8c6'
-  #  foreground: '#1d1f21'
+  footer_bar:
+    background: '#282a36'
+    foreground: '#f8f8f2'
 
   # Selection colors
   #
@@ -288,30 +289,30 @@ colors:
   #
   # Allowed values are CellForeground/CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
-  #selection:
-  #  text: CellBackground
-  #  background: CellForeground
+  selection:
+    text: CellBackground
+    background: '#44475a'
 
   # Normal colors
   normal:
-    black:   '0x000000'
+    black:   '0x21222c'
     red:     '0xff5555'
-    green:   '0xd3f000'
+    green:   '0x50fa7b'
     yellow:  '0xf1fa8c'
     blue:    '0xbd93f9'
     magenta: '0xff79c6'
     cyan:    '0x8be9fd'
-    white:   '0xbbbbbb'
+    white:   '0xf8f8f2'
 
   # Bright colors
   bright:
-    black:   '0x555555'
-    red:     '0xff5555'
-    green:   '0xd3f000'
-    yellow:  '0xf1fa8c'
-    blue:    '0xcaa9fa'
-    magenta: '0xff79c6'
-    cyan:    '0x8be9fd'
+    black:   '0x6272a4'
+    red:     '0xff6e6e'
+    green:   '0x69ff94'
+    yellow:  '0xffffa5'
+    blue:    '0xd6acff'
+    magenta: '0xff92df'
+    cyan:    '0xa4ffff'
     white:   '0xffffff'
 
   # Dim colors

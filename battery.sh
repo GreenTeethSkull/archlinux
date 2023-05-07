@@ -4,7 +4,7 @@ while true
 do
     battery_level=`acpi -b | grep -P -o '[0-9]+(?=%)'`
     is_charging=`acpi -b | grep -P -o '[a-zA-Z]+(?=,)'`
-    if ([ $battery_level -ge 91 ] && [[ $is_charging == 'Charging' ]]); then
+    if ([ $battery_level -ge 93 ] && [[ $is_charging == 'Charging' ]]); then
         #notify-send "Battery is charge!" "Level: ${battery_level}%"
         zenity --warning --title "Battery" --text "Battery is charge : ${battery_level} %"    
     elif ([ $battery_level -le 21 ] && [[ $is_charging == 'Discharging' ]]); then

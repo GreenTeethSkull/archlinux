@@ -105,7 +105,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Run local apps
 export PATH="/home/greenskull/.local/bin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/home/greenskull/bin:$PATH"
 # FLUTTER
 export PATH="/opt/flutter/bin:$PATH"
 export CHROME_EXECUTABLE="/usr/bin/brave"
