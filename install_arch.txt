@@ -113,7 +113,7 @@ pacman -S xorg xorg-server xorg-server-devel
 pacman -S gnome gnome-tweak-tool gnome-shell-extensions
 pacman -S gnome-power-manager
 sudo systemctl enable gdm.service
-pacman -S firefox ntfs-3g dnsutils net-tools
+pacman -S firefox ntfs-3g dnsutils net-tools reflector
 pacman -S nvidia nvidia-utils nvidia-settings opencl-nvidia mesa
 pacman -S htop nvtop intel-gpu-tools acpi
 pacman -S dotnet-sdk dotnet-runtime nodejs-lts
@@ -136,6 +136,10 @@ pacman -Sc
 
 **DESPUÉS DE INSTALAR ARCH Entrno Gráfico**
 usar WhiteSur-Dark y Colloid-gtk-theme (desde github) , Qogir , Papirus-Green, Oreo Green Cursor 
+
+pacman -S papirus-icon-theme
+paru -S papirus-folders
+papirus-folder -C green
 
 sudo nano /etc/locale.conf
 -LANG=es_PE.UTF-8
@@ -266,6 +270,18 @@ sudo fsck -y /dev/sdb1
 
 --ERROR D-BUS IN NAUTILUS MOUNTING USB
 systemctl --user restart gvfs-udisks2-volume-monitor
+
+--UPDATE ARCH MIRROR LISTS
+reflector --list-countries
+sudo nano /etc/xdg/reflector/reflector.conf
+--latest 20
+--country 'United States','Brazil','YOUR COUNTRY'
+sudo systemctl start reflector.service
+sudo nano /etc/pacman.d/mirrorlist
+
+--ENABLE MIRROR LIST ONCE PER WEEK 
+sudo systemctl enable reflector.service reflector.timer
+sudo systemctl start reflector.service reflector.timer
 
 --Terminal Icons (Buscar)
 
