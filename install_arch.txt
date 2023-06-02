@@ -135,7 +135,11 @@ pacman -Sc
 
 
 **DESPUÉS DE INSTALAR ARCH Entrno Gráfico**
-usar WhiteSur-Dark y Colloid-gtk-theme (desde github) , Qogir , Papirus-Green, Oreo Green Cursor 
+usar WhiteSur-Dark (desde github) , Papirus-Green, Oreo Green Cursor, Candy Icon Theme 
+
+bash install.sh -c Dark -t green -i arch
+bash install.sh -l -c Dark -t green -i arc
+sudo bash tweaks.sh -g -N -n -t green -b "matrix-world.jpg"
 
 pacman -S papirus-icon-theme
 paru -S papirus-folders
