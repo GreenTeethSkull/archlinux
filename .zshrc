@@ -12,7 +12,8 @@ export ZSH="$HOME/.oh-my-zsh"
 eval "$(oh-my-posh init zsh --config /home/greenskull/.poshthemes/greenskull_user.omp.json)"
 
 # Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
+# Setting this variable when ZSH_THEME=random# GTK THEME
+export GTK_THEME=WhiteSur-Dark-solid-green will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
