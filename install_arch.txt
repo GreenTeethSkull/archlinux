@@ -66,6 +66,16 @@ locale-gen
 nano /etc/vconsole.conf
 -KEYMAP=es
 
+--El bootloader para Dual Boot
+mkdir /boot/efi 
+mount /dev/sd1 /boot/efi/
+pacman -S grub efibootmgr dosfstools mtools
+nano /etc/default/grub
+-GRUB_DISABLE_OS_PROBER=false (descomentar)
+pacman -S os-prober
+grub-install --target=x86_64-efi (--efi-directory=/boot/EFI/) --bootloader-id=grub_uefi --modules="tpm" --recheck
+grub-mkconfig -o /boot/grub/grub.cfg
+
 --EL Bootloder
 grub-install /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -169,18 +179,6 @@ crear una carpeta de la aplicacion que desea instalar
 
 Desactivar "Ajustes del gestor de ventanas">Compositor>"Mostrar sombra bajo ventanas empotrables" (Para utilizar PLANK)
 
-
---El bootloader para Dual Boot
-mkdir /boot/efi 
-mount /dev/sd1 /boot/efi/
-pacman -S grub efibootmgr dosfstools mtools
-nano /etc/default/grub
--GRUB_DISABLE_OS_PROBER=false (descomentar)
-pacman -S os-prober
-grub-install --target=x86_64-efi (--efi-directory=/boot/EFI/) --bootloader-id=grub_uefi --recheck
-grub-mkconfig -o /boot/grub/grub.cfg
-
-
 --Otras configuraciones
 Poner el zoom del navegador a 125%
 cambiar fuente del sistema a 11 o 12
@@ -234,6 +232,7 @@ Noto_Sans
 Noto_Serif
 Open_Sans
 Roboto
+Fuentes en otros idiomas asiaticos
 
 --Configurar Bash
 utilizar Oh-my-posh
@@ -249,6 +248,27 @@ cambiar la shell de acuerdo a la ruta > chsh -s /usr/bin/fish
 --Desactivar la hot corner activities
 gsettings set org.gnome.desktop.interface enable-hot-corners false
 gsettings get org.gnome.desktop.interface enable-hot-corners
+
+--MUSICA DE MARIO EN EL BOOT
+sudo nano /etc/default/grub
+GRUB_INIT_TUNE="410 668 1 668 1 0 1 668 1 0 1 522 1 668 1 0 1 784 2 0 2 392 2"
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+--PARA BOOT SCREEN 
+sudo pacman -S plymouth
+paru -S plymouth-theme-arch-charge-gdm-spinner plymouth-theme-circuit-git plymouth-theme-green-blocks-git
+sudo nano /etc/mkinitcpio.conf
+MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+HOOKS=(... plymouth ...)
+sudo nano /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash rd.udev.log_priority=3 vt.global_cursor_default=1"
+sudo mkinitcpio -P linux; sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo plymouth-set-default-theme -l
+sudo plymouth-set-default-theme -R green_blocks
+sudo nano /etc/plymouth/plymouth.conf
+Theme=green_blocks
+ShowDelay=0
+DeviceTimeout=5
 
 --Configurar alertas de batería
 poner los archivos battery.fish y battery.sh en la carpeta Documentos
