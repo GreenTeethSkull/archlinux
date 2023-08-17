@@ -115,7 +115,7 @@ systemctl enable lightdm.service
 pacman -S pulseaudio pavucontrol
 pacman -S wireless_tools nm-connection-editor network-manager-applet
 pacman -S galculator firefox gvfs file-roller ntfs-3g dnsutils net-tools
-pacman -S nvidia nvidia-utils nvidia-settings opencl-nvidia mesa
+pacman -S nvidia nvidia-utils nvidia-settings opencl-nvidia mesa mesa-utils intel-compute-runtime
 pacman -S grub-customizer
 
 **gnome**
@@ -313,6 +313,10 @@ tar zxvf logo-ls_Linux_x86_64.tar.gz
 cd logo-ls_Linux_x86_64/
 sudo install -v logo-ls /usr/local/bin/
 sudo cp logo-ls.1.gz /usr/share/man/man1/
+
+--Fractional Scale Display
+paru -S mutter-x11-scaling
+gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling']"
 
 --Resizing en VirtualBox
 habilitat ajustar ventana en virtualbox
