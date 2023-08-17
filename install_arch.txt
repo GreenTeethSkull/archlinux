@@ -124,7 +124,7 @@ pacman -S gnome gnome-tweak-tool gnome-shell-extensions
 pacman -S gnome-power-manager
 sudo systemctl enable gdm.service
 pacman -S firefox ntfs-3g dnsutils net-tools reflector
-pacman -S nvidia nvidia-utils nvidia-settings nvidia-prime opencl-nvidia mesa mesa-utils intel-compute-runtime 
+pacman -S nvidia nvidia-utils nvidia-settings nvidia-prime opencl-nvidia mesa mesa-utils intel-compute-runtime intel-gpu-tools
 pacman -S htop nvtop intel-gpu-tools acpi
 pacman -S dotnet-sdk dotnet-runtime nodejs-lts
 pacman -S grub-customizer
@@ -258,7 +258,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo pacman -S plymouth
 paru -S plymouth-theme-arch-charge-gdm-spinner plymouth-theme-circuit-git plymouth-theme-green-blocks-git
 sudo nano /etc/mkinitcpio.conf
-MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm i915)
 HOOKS=(... plymouth ...)
 sudo nano /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash rd.udev.log_priority=3 vt.global_cursor_default=1"
