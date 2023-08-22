@@ -8,7 +8,7 @@
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
-eval "$(oh-my-posh init bash --config /home/greenskull/.poshthemes/greenskull_user.omp.json)"
+eval "$(oh-my-posh init bash --config /home/greenskull/.poshthemes/greenskull_tux_min.omp.json)"
 
 # Run local apps
 export PATH="/home/greenskull/.local/bin:$PATH"
@@ -17,3 +17,5 @@ export PATH="/usr/local/bin:$PATH"
 # FLUTTER
 export PATH="/opt/flutter/bin:$PATH"
 export CHROME_EXECUTABLE="/usr/bin/brave"
+# TERMINAL ICONS
+alias ls=logo-ls

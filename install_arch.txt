@@ -143,7 +143,6 @@ Awesome Tiles
 pacman -Syu
 pacman -Sc
 
-
 **DESPUÉS DE INSTALAR ARCH Entrno Gráfico**
 usar WhiteSur-Dark (desde github) , Papirus-Green, Oreo Green Cursor, Candy Icon Theme 
 
@@ -279,12 +278,28 @@ sudo nano battery_alert.service
 
 sudo chmod 777 /etc/systemd/system/battery_alert.service
 
-sudo systemctl daemon-reload 
+sudo systemctl daemon-reload
 
 sudo systemctl enable battery_alert.service 
 sudo systemctl start battery_alert.service
 
-sudo systemctl status battery_alert.service  
+sudo systemctl status battery_alert.service
+
+--Aplicaciones .AppImage en menu de aplicaciones
+colocar el archivo .appimage en ~/bin/
+colocar en el path ~/bin/
+crear archivo nombre-aplicaion.desktop en ~/.local/share/applications/
+	[Desktop Entry]
+	Name=Nombre de la Aplicación
+	Exec=/ruta/completa/a/nombre-del-archivo.appimage
+	Icon=/ruta/completa/a/icono.png
+	Terminal=false
+	Type=Application
+	Categories=Development
+chmod +x nombre-del-archivo.appimage
+update-desktop-database ~/.local/share/applications/
+reiniciar
+
 
 --ERROR MOUNTING NTFS DISK
 sudo ntfsfix /dev/sdb1
