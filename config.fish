@@ -10,4 +10,6 @@ if status is-interactive
     set -x CHROME_EXECUTABLE /usr/bin/brave
     # TERMINAL ICONS
     alias ls=logo-ls
+    # HINT COLOR IN FISH
+    set -g fish_color_autosuggestion "#5aa1db"
 end
