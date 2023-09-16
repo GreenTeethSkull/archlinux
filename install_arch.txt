@@ -332,6 +332,7 @@ sudo cp logo-ls.1.gz /usr/share/man/man1/
 --Fractional Scale Display
 paru -S mutter-x11-scaling
 gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling']"
+(paru -S gnome-control-center-x11-scaling)
 
 --Resizing en VirtualBox
 habilitat ajustar ventana en virtualbox
