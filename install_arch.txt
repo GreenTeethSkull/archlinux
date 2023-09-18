@@ -334,6 +334,9 @@ paru -S mutter-x11-scaling
 gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-scaling']"
 (paru -S gnome-control-center-x11-scaling)
 
+--Power profiles
+paru -S power-profiles-daemon
+
 --Resizing en VirtualBox
 habilitat ajustar ventana en virtualbox
 sudo pacman -S virtualbox-guest-utils
