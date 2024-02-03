@@ -117,6 +117,7 @@ pacman -S wireless_tools nm-connection-editor network-manager-applet
 pacman -S galculator firefox gvfs file-roller ntfs-3g dnsutils net-tools
 pacman -S nvidia nvidia-utils nvidia-settings opencl-nvidia mesa mesa-utils intel-compute-runtime nvidia-prime
 pacman -S grub-customizer
+pacman -S gnome-browser-connector
 
 **gnome**
 pacman -S xorg xorg-server xorg-server-devel
@@ -131,13 +132,14 @@ pacman -S grub-customizer
 pacman -S bluez bluez-utils
 sudo systemctl enable bluetooth.service
 
---Extensiones utiles para gnome
+--Extensiones utiles para gnomels
 User Themes
 Dash to Dock
 No overview at astart-up
 Desktop Icons NG (DING)
-Tiling Assistant
 Awesome Tiles
+Quick Settings Audio Panel
+Workspaces indicator by open apps
 
 --Cualquier cosa
 pacman -Syu
@@ -147,7 +149,7 @@ pacman -Sc
 usar WhiteSur-Dark (desde github) , Papirus-Green, Oreo Green Cursor, Candy Icon Theme 
 
 bash install.sh -c Dark -t green -i arch
-bash install.sh -l -c Dark -t green -i arc
+bash install.sh -l -c Dark -t green -i arch
 sudo bash tweaks.sh -g -N -n -t green -b "matrix-world.jpg"
 
 pacman -S papirus-icon-theme

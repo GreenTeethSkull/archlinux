@@ -13,3 +13,5 @@ if status is-interactive
     # HINT COLOR IN FISH
     set -g fish_color_autosuggestion "#5aa1db"
 end
+
+set fish_greeting
