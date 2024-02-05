@@ -339,6 +339,11 @@ gsettings set org.gnome.mutter experimental-features "['x11-randr-fractional-sca
 --Power profiles
 paru -S power-profiles-daemon
 
+--Zoom Configuration
+cd ~/.config
+nano zoomus.conf
+enableMiniWindow=false
+
 --Resizing en VirtualBox
 habilitat ajustar ventana en virtualbox
 sudo pacman -S virtualbox-guest-utils
