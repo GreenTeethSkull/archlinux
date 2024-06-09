@@ -30,13 +30,6 @@ swapon /dev/sda3
 
 mount /dev/sda2 /mnt 
 
-(
-	mount /dev/sda2 /mnt
-	btrfs su cr /mnt/@
-	umount /mnt
-	mount -o compress=lzo,subvol=@ /dev/sda2 /mnt
-)
-
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 #pacman -Sy archlinux-keyring
@@ -65,6 +58,20 @@ nano /etc/locale.gen
 locale-gen
 nano /etc/vconsole.conf
 -KEYMAP=es
+
+--Systemd-boot
+bootctl --path=/boot
+nano /boot/loader/loader.conf
+ default arch
+ timeout 4
+ editor 0
+nano /boot/loader/entries/arch.conf
+Añade las siguientes líneas (reemplaza PARTUUID con el de tu partición root que puedes encontrar usando blkid):
+title   Arch Linux
+linux   /vmlinuz-linux
+initrd  /initramfs-linux.img
+options root=PARTUUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw
+
 
 --El bootloader para Dual Boot
 mkdir /boot/efi 
@@ -140,6 +147,7 @@ Desktop Icons NG (DING)
 Awesome Tiles
 Quick Settings Audio Panel
 Workspaces indicator by open apps
+Dash to panel
 
 --Cualquier cosa
 pacman -Syu
@@ -343,6 +351,64 @@ paru -S power-profiles-daemon
 cd ~/.config
 nano zoomus.conf
 enableMiniWindow=false
+
+--Update kde with nvidia
+sudo nano /usr/local/bin/update-bootloader.sh
+
+#!/bin/bash
+
+# Ruta al directorio donde están las entradas del bootloader
+BOOTLOADER_ENTRIES_DIR="/efi/loader/entries"
+
+# Recorre cada archivo de configuración en el directorio de entradas del bootloader
+for entry in "$BOOTLOADER_ENTRIES_DIR"/*.conf; do
+    # Verifica si el parámetro ya está presente
+    if ! grep -q "nvidia-drm.modeset=1" "$entry"; then
+        # Añade el parámetro al final de la línea de opciones
+        sed -i 's/^options .*/& nvidia-drm.modeset=1/' "$entry"
+    fi
+done
+
+sudo chmod +x /usr/local/bin/update-bootloader.sh
+
+sudo nano /etc/pacman.d/hooks/99-update-bootloader.hook
+
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Ensure nvidia-drm.modeset=1 is set in systemd-boot loader entries
+When = PostTransaction
+Exec = /usr/local/bin/update-bootloader.sh
+
+
+--Vmware configuration
+sudo modprobe -a vmw_vmci vmmon
+nano /etc/systemd/system/vmware-networks-server.service
+
+[Unit]
+Description=VMware Networks
+Wants=vmware-networks-configuration.service
+After=vmware-networks-configuration.service
+
+[Service]
+Type=forking
+ExecStartPre=-/sbin/modprobe vmnet
+ExecStart=/usr/bin/vmware-networks --start
+ExecStop=/usr/bin/vmware-networks --stop
+
+[Install]
+WantedBy=multi-user.target
+
+sudo systemctl enable vmware-networks.service
+sudo systemctl start vmware-networks.service
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now vmware-networks-server.service
 
 --Resizing en VirtualBox
 habilitat ajustar ventana en virtualbox
