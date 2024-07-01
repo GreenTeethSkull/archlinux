@@ -70,7 +70,7 @@ Añade las siguientes líneas (reemplaza PARTUUID con el de tu partición root q
 title   Arch Linux
 linux   /vmlinuz-linux
 initrd  /initramfs-linux.img
-options root=PARTUUID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx rw
+options root=/dev/sda2 rw
 
 
 --El bootloader para Dual Boot
@@ -139,7 +139,7 @@ pacman -S grub-customizer
 pacman -S bluez bluez-utils
 sudo systemctl enable bluetooth.service
 
---Extensiones utiles para gnomels
+--Extensiones utiles para gnome
 User Themes
 Dash to Dock
 No overview at astart-up
@@ -148,6 +148,25 @@ Awesome Tiles
 Quick Settings Audio Panel
 Workspaces indicator by open apps
 Dash to panel
+EasyEffects Preset Selector
+
+--Configurar EasyEffectts
+Input Effects
+- Stereo Tools  LR > LL (Mono Left Channel)
+- Loudness
+- Noise Reduction
+- Echo Canceller
+
+--Configurar Git credentials
+-nano .giconfig
+[credential]
+	helper = store
+[user]
+	email = angelitorios366@gmail.com
+	name = GreenTeethSkull
+
+-nano .git-credentials
+https://GreenTeethSkull:<github_token>@github.com
 
 --Cualquier cosa
 pacman -Syu
@@ -187,6 +206,11 @@ crear una carpeta de la aplicacion que desea instalar
 -makepkg -si
 
 Desactivar "Ajustes del gestor de ventanas">Compositor>"Mostrar sombra bajo ventanas empotrables" (Para utilizar PLANK)
+
+--Noise Cancelation on Microphone
+pactl load-module module-echo-cancel
+Enter pulse audio volume and adjust (70%)
+Change default microphone to echo Cancel source
 
 --Otras configuraciones
 Poner el zoom del navegador a 125%
@@ -310,6 +334,8 @@ chmod +x nombre-del-archivo.appimage
 update-desktop-database ~/.local/share/applications/
 reiniciar
 
+--Files abre con VSCODE
+xdg-mime default org.gnome.Nautilus.desktop inode/directory
 
 --ERROR MOUNTING NTFS DISK
 sudo ntfsfix /dev/sdb1
